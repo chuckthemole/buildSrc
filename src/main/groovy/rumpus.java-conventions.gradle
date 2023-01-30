@@ -1,0 +1,16 @@
+plugins {
+    id 'java'
+    id 'rumpus'
+}
+
+group = 'com.rumpus'
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    testImplementation "junit:junit:4.13"
+}
