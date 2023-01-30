@@ -3,9 +3,6 @@ plugins {
     id 'rumpus'
 }
 
-group = 'com.rumpus'
-version = '1.0'
-
 repositories {
     mavenCentral()
     gradlePluginPortal()

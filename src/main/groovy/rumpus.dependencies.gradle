@@ -1,0 +1,31 @@
+dependencies {
+    implementation(project(':common'))
+
+    implementation('org.springframework.boot:spring-boot-starter:3.0.1')
+    implementation('org.springframework.boot:spring-boot-starter-web:3.0.1') // Enables and configures Spring MVC
+    
+    // DB dependencies
+    // implementation('org.springframework.data:spring-data-bom:2022.0.0')
+    implementation('org.springframework.boot:spring-boot-starter-jdbc:3.0.1')
+    implementation('mysql:mysql-connector-java:8.0.31')
+
+    // Spring Boot dev tools
+    implementation('org.springframework.boot:spring-boot-devtools:3.0.1')
+
+    implementation('org.springframework.boot:spring-boot-starter-thymeleaf:3.0.1')
+    implementation('org.webjars:bootstrap:5.2.3')
+
+    // Testing
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation('org.junit.jupiter:junit-jupiter-api:5.8.1')
+    testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine:5.8.1')
+
+    // kong
+    implementation('com.konghq:unirest-java:3.11.13')
+
+    // ? 
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+
+    // JS
+    // implementation('com.github.eirslett:frontend-maven-plugin:1.12.1')
+}
