@@ -1,5 +1,13 @@
 plugins {
     id 'visual-studio'
+    id 'application'
+    id 'rumpus.java-conventions'
+    id 'rumpus.dependencies'
+    id 'rumpus.test-conventions'
+}
+
+application {
+    mainClass = 'com.rumpus.rumpus.App'
 }
 
 group = 'com.rumpus'
