@@ -28,4 +28,6 @@ dependencies {
 
     // JS
     // implementation('com.github.eirslett:frontend-maven-plugin:1.12.1')
+
+    implementation 'com.google.code.findbugs:jsr305:3.0.2'
 }
