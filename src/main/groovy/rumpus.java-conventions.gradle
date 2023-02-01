@@ -1,13 +1,7 @@
 plugins {
     id 'java'
-    // id 'rumpus'
 }
 
 repositories {
     mavenCentral()
-    gradlePluginPortal()
-}
-
-dependencies {
-    testImplementation "junit:junit:4.13"
 }
