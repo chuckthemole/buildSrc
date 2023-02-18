@@ -9,6 +9,18 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-jdbc:3.0.1')
     implementation('mysql:mysql-connector-java:8.0.31')
 
+    implementation('org.springframework.data:spring-data-bom:2022.0.1')
+    implementation('org.springframework.data:spring-data-commons')
+
+    implementation('org.springframework.session:spring-session-core:3.0.0')
+    implementation('org.springframework.session:spring-session-jdbc:3.0.0')
+
+    implementation('org.reactivestreams:reactive-streams:1.0.4')
+    implementation platform('io.projectreactor:reactor-bom:2022.0.3')
+    implementation('io.projectreactor:reactor-core:3.5.3')
+    implementation('org.springframework.boot:spring-boot-starter-webflux:3.0.2')
+    implementation('org.springframework.boot:spring-boot-starter-security:3.0.2')
+
     // Spring Boot dev tools
     implementation('org.springframework.boot:spring-boot-devtools:3.0.1')
 
