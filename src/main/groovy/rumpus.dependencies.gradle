@@ -8,6 +8,8 @@ dependencies {
     // implementation('org.springframework.data:spring-data-bom:2022.0.0')
     implementation('org.springframework.boot:spring-boot-starter-jdbc:3.0.1')
     implementation('mysql:mysql-connector-java:8.0.31')
+    // testImplementation('com.h2database:h2:2.1.214')
+    // runtimeOnly('com.h2database:h2')
 
     implementation('org.springframework.data:spring-data-bom:2022.0.1')
     implementation('org.springframework.data:spring-data-commons')
@@ -20,6 +22,7 @@ dependencies {
     implementation('io.projectreactor:reactor-core:3.5.3')
     implementation('org.springframework.boot:spring-boot-starter-webflux:3.0.2')
     implementation('org.springframework.boot:spring-boot-starter-security:3.0.2')
+    implementation('org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE')
 
     // Spring Boot dev tools
     implementation('org.springframework.boot:spring-boot-devtools:3.0.1')
