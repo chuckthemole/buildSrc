@@ -8,3 +8,9 @@ targetCompatibility = JavaVersion.VERSION_17
 repositories {
     mavenCentral()
 }
+
+// find a way to build this into command line
+// tasks.withType(JavaCompile) {
+//     options.encoding = 'UTF-8'
+//     options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+// }
