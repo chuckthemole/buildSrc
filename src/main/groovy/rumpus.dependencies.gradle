@@ -23,6 +23,7 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-webflux:3.0.2')
     implementation('org.springframework.boot:spring-boot-starter-security:3.0.2')
     implementation('org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE')
+    implementation('org.springframework.boot:spring-boot-starter-websocket:3.0.2')
 
     // Spring Boot dev tools
     implementation('org.springframework.boot:spring-boot-devtools:3.0.1')
