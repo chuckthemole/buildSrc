@@ -7,7 +7,7 @@ plugins {
 }
 
 application {
-    mainClass = 'com.rumpus.rumpus.App'
+    mainClass = 'com.rumpus.App'
 }
 
 group = 'com.rumpus'
