@@ -25,6 +25,11 @@ dependencies {
     implementation('org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELEASE')
     implementation('org.springframework.boot:spring-boot-starter-websocket:3.0.2')
 
+    // Spring Boot Actuator and Spring Boot Admin
+    implementation('org.springframework.boot:spring-boot-starter-actuator')
+    implementation('de.codecentric:spring-boot-admin-starter-client:3.2.1')
+    implementation('de.codecentric:spring-boot-admin-starter-server:3.2.1')
+
     // Spring Boot dev tools
     implementation('org.springframework.boot:spring-boot-devtools:3.0.1')
 
@@ -41,9 +46,6 @@ dependencies {
 
     // kong
     implementation('com.konghq:unirest-java:3.11.13')
-
-    // ? 
-    implementation('org.springframework.boot:spring-boot-starter-actuator')
 
     // JS
     // implementation('com.github.eirslett:frontend-maven-plugin:1.12.1')
