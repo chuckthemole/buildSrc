@@ -1,6 +1,5 @@
+// TODO: I should make these module specific. Rumpus doesn't need all the ones Common does, for example.
 dependencies {
-    // implementation(project(':common'))
-
     implementation('org.springframework.boot:spring-boot-starter:3.0.1')
     implementation('org.springframework.boot:spring-boot-starter-web:3.0.1') // Enables and configures Spring MVC
     
