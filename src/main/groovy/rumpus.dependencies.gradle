@@ -13,6 +13,9 @@ dependencies {
     implementation('org.springframework.data:spring-data-bom:2022.0.1')
     implementation('org.springframework.data:spring-data-commons')
 
+    // JPA this is bootstrapping spring data jpa and messing up the run. keeping here for later implementation - chuck 4/19/2024
+    // implementation('org.springframework.data:spring-data-jpa:3.2.3') 
+
     implementation('org.springframework.session:spring-session-core:3.0.0')
     implementation('org.springframework.session:spring-session-jdbc:3.0.0')
 
