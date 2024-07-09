@@ -35,6 +35,10 @@ dependencies {
     // Spring Boot dev tools
     implementation('org.springframework.boot:spring-boot-devtools:3.0.1')
 
+    // Apache commons, using for some url validator stuff right now - chuck 4/30/2024
+    // implementation('org.apache.commons:commons-collections4:4.5.0-M1')
+    implementation('commons-validator:commons-validator:1.7')
+
     implementation('org.springframework.boot:spring-boot-starter-thymeleaf:3.0.1')
     implementation('org.webjars:bootstrap:5.2.3')
 
@@ -61,4 +65,8 @@ dependencies {
 
     // Python
     implementation('org.python:jython-standalone:2.7.2')
+
+    // Cloud
+    implementation('io.awspring.cloud:spring-cloud-aws:3.1.1')
+    implementation('io.awspring.cloud:spring-cloud-aws-starter-s3:3.1.1')
 }
