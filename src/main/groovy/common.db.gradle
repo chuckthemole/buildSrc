@@ -1,0 +1,8 @@
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter-jdbc:3.0.1')
+    implementation('mysql:mysql-connector-java:8.0.31')
+
+    // Spring Data
+    implementation('org.springframework.data:spring-data-bom:2022.0.1')
+    implementation('org.springframework.data:spring-data-commons')
+}

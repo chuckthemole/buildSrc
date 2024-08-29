@@ -1,19 +1,21 @@
 plugins {
     id 'visual-studio'
     id 'application'
-    id 'common.session' // TODO: why do I need this here? I get errors with the session module if I don't have it here. - chuck 8/29/2024
     id 'rumpus.java-conventions'
+    id 'common.aws'
+    id 'common.db'
+    id 'common.session'
     id 'rumpus.dependencies'
     id 'rumpus.tasks'
     id 'rumpus.test'
     id 'rumpus.test-conventions'
 }
 
-application {
-    mainClass = 'com.rumpus.App'
-}
+// application {
+//     mainClass = 'com.rumpus.App'
+// }
 
-group = 'com.rumpus'
+// group = 'com.rumpus'
 version = '0.0.1'
 // version = '0.0.1-SNAPSHOT'
 // sourceCompatibility = '17'
