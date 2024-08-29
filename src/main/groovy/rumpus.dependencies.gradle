@@ -69,4 +69,8 @@ dependencies {
     // Cloud
     implementation('io.awspring.cloud:spring-cloud-aws:3.1.1')
     implementation('io.awspring.cloud:spring-cloud-aws-starter-s3:3.1.1')
+
+    // Tesseract https://www.baeldung.com/java-ocr-tesseract
+    implementation('net.sourceforge.tess4j:tess4j:5.13.0')
+
 }

@@ -3,6 +3,7 @@ plugins {
     id 'application'
     id 'rumpus.java-conventions'
     id 'rumpus.dependencies'
+    id 'rumpus.tasks'
     id 'rumpus.test-conventions'
 }
 
