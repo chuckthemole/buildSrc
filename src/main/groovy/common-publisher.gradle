@@ -1,0 +1,87 @@
+// ==============================
+// common-publisher.gradle
+// ==============================
+// This Gradle script configures the publishing of a Java library module
+// (e.g., `common`) to GitHub Packages using the Maven publishing plugin.
+// It loads environment variables from a `.env` file and sets up credentials,
+// metadata, and repository targets accordingly.
+// ==============================
+
+// --- Load environment variables from .env at project root ---
+def loadDotEnv() {
+    def envFile = file("${rootDir}/.env") // Points to root-level .env file
+    if (envFile.exists()) {
+        envFile.eachLine { line ->
+            // Skip commented or blank lines
+            if (!line.trim().startsWith("#") && line.contains("=")) {
+                // Split the line into key and value
+                def (key, value) = line.split("=", 2)
+                // Set the key/value as a project property
+                project.ext.set(key.trim(), value.trim())
+            }
+        }
+    }
+}
+
+loadDotEnv() // Call the .env loader
+
+// --- Publishing block ---
+// afterEvaluate {
+    publishing {
+        publications {
+            // Define a Maven publication named "gpr" (GitHub Package Registry)
+            gpr(MavenPublication) {
+                // Ensure the Java component exists
+                from components.java // Publishes the Java component (main output)
+
+                // Group, artifact, and version for this library
+                // groupId = 'com.rumpushub.common'
+                // artifactId = 'common'
+                // version = '0.1.0'
+
+                // POM metadata - required by Maven Central & GitHub Packages
+                pom {
+                    name = 'Rumpus Common Library' // Display name of the library
+                    description = 'Shared Java utilities and core classes for the Rumpus platform.'
+                    url = 'https://github.com/chuckthemole/common' // Project homepage
+
+                    licenses {
+                        license {
+                            name = 'The Apache License, Version 2.0'
+                            url = 'https://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id = 'chuckthemole' // GitHub ID
+                            name = 'Charles Thomas'
+                            email = 'chuckthemole@gmail.com'
+                        }
+                    }
+
+                    scm {
+                        connection = 'scm:git:git://github.com/chuckthemole/common.git'
+                        developerConnection = 'scm:git:ssh://github.com:chuckthemole/common.git'
+                        url = 'https://github.com/chuckthemole/common'
+                    }
+                }
+            }
+        }
+    // }
+
+    // Define where the artifact will be published (GitHub Packages)
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/chuckthemole/common")
+
+            // Credentials required for authentication
+            credentials {
+                // Try to get credentials from Gradle properties or environment variables
+                username = project.findProperty("GPR_USER") ?: System.getenv("USERNAME")
+                password = project.findProperty("GPR_KEY") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}

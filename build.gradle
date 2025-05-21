@@ -1,3 +1,23 @@
 plugins {
+    id 'groovy'
     id 'groovy-gradle-plugin'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+
+    testImplementation 'org.spockframework:spock-core:2.3-groovy-3.0'
+    // testImplementation 'org.codehaus.groovy:groovy-all:3.0.9'
+}
+
+test {
+    useJUnitPlatform() // For Spock 2+
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
 }

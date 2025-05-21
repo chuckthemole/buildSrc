@@ -2,6 +2,8 @@ plugins {
     id 'visual-studio'
     id 'application'
     id 'rumpus.java-conventions'
+    // TODO: I need to look more into plugins like this and see if we can organize these in a better way.
+    // Update: I want to get rid of this because admin module does not need it but is included because it's common
     id 'common.aws'
     id 'common.db'
     id 'common.session'
@@ -9,13 +11,15 @@ plugins {
     id 'rumpus.tasks'
     id 'rumpus.test'
     id 'rumpus.test-conventions'
+
+    id 'maven-publish'
 }
 
 // application {
 //     mainClass = 'com.rumpus.App'
 // }
 
-// group = 'com.rumpus'
-version = '0.0.1'
+group = 'com.rumpus.common'
+version = '0.0.2'
 // version = '0.0.1-SNAPSHOT'
 // sourceCompatibility = '17'
