@@ -28,8 +28,14 @@ class EnvLoaderSpec extends Specification {
         given:
         // Create a Gradle project using ProjectBuilder, rooted at the current working directory.
         // This is important because EnvLoader looks in the *parent* directory of rootDir for the .env file.
+        def tempDir = File.createTempDir()
+        def envFile = new File(tempDir.parentFile, ".env")
+        envFile.text = """
+            GPR_USER=exampleuser
+            GPR_TOKEN=exampletoken123
+        """.stripIndent()
         def project = ProjectBuilder.builder()
-            .withProjectDir(new File(System.getProperty("user.dir")))
+            .withProjectDir(tempDir)
             .build()
 
         when:
