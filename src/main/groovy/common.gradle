@@ -1,7 +1,7 @@
 plugins {
     id 'visual-studio'
     id 'application'
-    id 'rumpus.java-conventions'
+    id 'rumpus.java-conventions' // maybe library-conventions?
     // TODO: I need to look more into plugins like this and see if we can organize these in a better way.
     // Update: I want to get rid of this because admin module does not need it but is included because it's common
     id 'common.aws'
@@ -19,7 +19,7 @@ plugins {
 //     mainClass = 'com.rumpus.App'
 // }
 
-group = 'com.rumpus.common'
-version = '0.0.2'
+// group = 'com.rumpus.common'
+// version = '0.0.2'
 // version = '0.0.1-SNAPSHOT'
 // sourceCompatibility = '17'
