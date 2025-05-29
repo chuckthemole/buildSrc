@@ -14,12 +14,3 @@ plugins {
 
     id 'maven-publish'
 }
-
-// application {
-//     mainClass = 'com.rumpus.App'
-// }
-
-// group = 'com.rumpus.common'
-// version = '0.0.2'
-// version = '0.0.1-SNAPSHOT'
-// sourceCompatibility = '17'
