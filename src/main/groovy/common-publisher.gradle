@@ -9,6 +9,12 @@
 
 import EnvLoader
 
+def safeFrom = { builder, arg ->
+    println "DEBUG: from() called in ${project.name}, stacktrace:"
+    Thread.currentThread().stackTrace.each { println it }
+    originalFrom.invoke(builder, arg)
+}
+
 // --- Load environment variables from .env ---
 EnvLoader.loadDotEnv(project)
 def env = project.hasProperty("ENV") ? project.ENV : "DEV"
@@ -20,7 +26,7 @@ if (env == "LIVE") {
                 // Define a Maven publication named "gpr"
                 gpr(MavenPublication) {
                     // Publish the main Java component
-                    from components.java
+                    safeFrom(components.java)
 
                     // Optional: Define coordinates explicitly if needed
                     // groupId = 'com.rumpushub.common'
