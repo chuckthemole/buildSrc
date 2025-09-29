@@ -42,7 +42,7 @@ class RumpusDependenciesPlugin : Plugin<Project> {
             addDeps(extension.cloud)
             addDeps(extension.devTools)
             addDeps(extension.testing, "testImplementation")
-            addDeps(extension.additionalDeps) // ✅ extra catch-all deps
+            addDeps(extension.additionalDeps)
 
             project.logger.lifecycle("RumpusDependenciesPlugin applied successfully")
         }
