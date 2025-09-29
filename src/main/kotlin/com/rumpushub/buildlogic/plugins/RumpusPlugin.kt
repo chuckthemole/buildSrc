@@ -37,11 +37,5 @@ class RumpusPlugin : Plugin<Project> {
         project.extensions.findByType(JavaApplication::class.java)?.apply {
             mainClass.set("com.rumpus.App")
         }
-
-        // --------------------------
-        // Set group and version for all modules
-        // --------------------------
-        project.group = "com.rumpus"
-        project.version = "1.0.0"
     }
 }
