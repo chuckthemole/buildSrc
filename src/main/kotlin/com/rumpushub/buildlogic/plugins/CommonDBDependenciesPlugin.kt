@@ -1,37 +1,74 @@
-// buildSrc/src/main/kotlin/com/rumpushub/buildlogic/plugins/DatabaseDependenciesPlugin.kt
 package com.rumpushub.buildlogic.plugins
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
 /**
+ * CommonDBDependenciesPlugin
+ *
  * Adds database-related dependencies to a project.
  * Includes Spring Boot JDBC, JPA, MySQL, Redis, and jOOQ.
+ *
+ * Features:
+ * - Centralized dependency management via version catalogs or explicit assignment.
+ * - Type-safe Kotlin DSL configuration through a Gradle extension.
+ * - Clear error messages if required versions/dependencies are not set.
+ *
+ * Example usage in build.gradle.kts:
+ * ```
+ * apply<CommonDBDependenciesPlugin>()
+ *
+ * dbDeps {
+ *     springJdbc = rumpusLibs.springJdbc
+ *     springDataJpa = rumpusLibs.springDataJpa
+ *     mysqlConnector = rumpusLibs.mysql
+ *     redis = rumpusLibs.redis
+ *     jedis = rumpusLibs.jedis
+ *     jooq = rumpusLibs.jooq
+ * }
+ * ```
  */
 class CommonDBDependenciesPlugin : Plugin<Project> {
+
+    /**
+     * Extension exposed to the build script for configuring database dependencies.
+     */
+    open class DbExtension {
+        var springJdbc: Any? = null
+        var springDataJpa: Any? = null
+        var mysqlConnector: Any? = null
+        var redis: Any? = null
+        var jedis: Any? = null
+        var jooq: Any? = null
+    }
+
     override fun apply(project: Project) {
-        // --------------------------
-        // Spring Boot dependencies
-        // --------------------------
-        project.dependencies.add("implementation", "org.springframework.boot:spring-boot-starter-jdbc:3.0.1")
-        project.dependencies.add("implementation", "org.springframework.boot:spring-boot-starter-data-jpa:3.3.3")
-        project.dependencies.add("implementation", "mysql:mysql-connector-java:8.0.31")
+        val extension = project.extensions.create("dbDeps", DbExtension::class.java)
 
-        // --------------------------
-        // Spring Data
-        // --------------------------
-        project.dependencies.add("implementation", "org.springframework.data:spring-data-bom:2022.0.1")
-        project.dependencies.add("implementation", "org.springframework.data:spring-data-commons")
+        project.afterEvaluate {
+            val jdbc = extension.springJdbc
+                ?: throw IllegalArgumentException("CommonDBDependenciesPlugin requires 'springJdbc' to be set.")
+            val jpa = extension.springDataJpa
+                ?: throw IllegalArgumentException("CommonDBDependenciesPlugin requires 'springDataJpa' to be set.")
+            val mysql = extension.mysqlConnector
+                ?: throw IllegalArgumentException("CommonDBDependenciesPlugin requires 'mysqlConnector' to be set.")
+            val redisDep = extension.redis
+                ?: throw IllegalArgumentException("CommonDBDependenciesPlugin requires 'redis' to be set.")
+            val jedisDep = extension.jedis
+                ?: throw IllegalArgumentException("CommonDBDependenciesPlugin requires 'jedis' to be set.")
+            val jooqDep = extension.jooq
+                ?: throw IllegalArgumentException("CommonDBDependenciesPlugin requires 'jooq' to be set.")
 
-        // --------------------------
-        // Redis
-        // --------------------------
-        project.dependencies.add("implementation", "org.springframework.data:spring-data-redis:3.2.0")
-        project.dependencies.add("implementation", "redis.clients:jedis:5.1.2")
+            project.dependencies.add("implementation", jdbc)
+            project.dependencies.add("implementation", jpa)
+            project.dependencies.add("implementation", mysql)
+            project.dependencies.add("implementation", redisDep)
+            project.dependencies.add("implementation", jedisDep)
+            project.dependencies.add("implementation", jooqDep)
 
-        // --------------------------
-        // SQL / jOOQ
-        // --------------------------
-        project.dependencies.add("implementation", "org.jooq:jooq:3.15.1")
+            project.logger.lifecycle(
+                "CommonDBDependenciesPlugin applied: $jdbc, $jpa, $mysql, $redisDep, $jedisDep, $jooqDep"
+            )
+        }
     }
 }

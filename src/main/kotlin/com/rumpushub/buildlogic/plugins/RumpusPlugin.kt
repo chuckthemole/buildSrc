@@ -27,9 +27,6 @@ class RumpusPlugin : Plugin<Project> {
         project.pluginManager.apply(RumpusJavaConventionsPlugin::class.java)
         project.pluginManager.apply(RumpusDependenciesPlugin::class.java)
         project.pluginManager.apply(RumpusTasks::class.java)
-        project.pluginManager.apply(RumpusTest::class.java)
-        project.pluginManager.apply(RumpusTestConventions::class.java)
-        project.pluginManager.apply(CommonSessionDependencies::class.java)
 
         // --------------------------
         // Configure the application plugin (modern Gradle 7+)

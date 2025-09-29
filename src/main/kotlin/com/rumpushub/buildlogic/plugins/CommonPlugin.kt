@@ -29,13 +29,8 @@ class CommonPlugin : Plugin<Project> {
         // --------------------------
         // Apply custom Rumpus modules
         // --------------------------
-        project.pluginManager.apply(AwsDependenciesPlugin::class.java)
-        project.pluginManager.apply(CommonDBDependenciesPlugin::class.java)
-        project.pluginManager.apply(CommonSessionDependencies::class.java)
         project.pluginManager.apply(RumpusDependenciesPlugin::class.java)
         project.pluginManager.apply(RumpusTasks::class.java)
-        project.pluginManager.apply(RumpusTest::class.java)
-        project.pluginManager.apply(RumpusTestConventions::class.java)
 
         // --------------------------
         // Apply publishing plugin
