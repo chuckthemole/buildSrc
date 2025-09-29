@@ -29,7 +29,6 @@ class CommonPlugin : Plugin<Project> {
         // --------------------------
         // Apply custom Rumpus modules
         // --------------------------
-        project.pluginManager.apply(RumpusDependenciesPlugin::class.java)
         project.pluginManager.apply(RumpusTasks::class.java)
 
         // --------------------------

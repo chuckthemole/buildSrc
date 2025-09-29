@@ -25,7 +25,6 @@ class RumpusPlugin : Plugin<Project> {
         // Apply internal Rumpus plugins
         // --------------------------
         project.pluginManager.apply(RumpusJavaConventionsPlugin::class.java)
-        project.pluginManager.apply(RumpusDependenciesPlugin::class.java)
         project.pluginManager.apply(RumpusTasks::class.java)
 
         // --------------------------
